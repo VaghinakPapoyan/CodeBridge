@@ -34,29 +34,26 @@
 .gradient1 {
   background: #3399ff;
   background: -webkit-linear-gradient(
-    211deg,
+    0deg,
     rgba(51, 153, 255, 1) 0%,
-    rgba(35, 104, 173, 1) 67%,
-    rgba(255, 153, 51, 1) 100%
+    rgba(9, 85, 144, 1) 100%
   );
   background: -moz-linear-gradient(
-    211deg,
+    0deg,
     rgba(51, 153, 255, 1) 0%,
-    rgba(35, 104, 173, 1) 67%,
-    rgba(255, 153, 51, 1) 100%
+    rgba(9, 85, 144, 1) 100%
   );
   background: linear-gradient(
-    211deg,
+    0deg,
     rgba(51, 153, 255, 1) 0%,
-    rgba(35, 104, 173, 1) 67%,
-    rgba(255, 153, 51, 1) 100%
+    rgba(9, 85, 144, 1) 100%
   );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3399FF", endColorstr="#FF9933", GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3399FF", endColorstr="#095590", GradientType=0);
 }
 .card-gradient {
   position: relative;
 }
-.card-gradient .card-cont {
+.card-cont {
   position: relative;
   z-index: 3;
 }
@@ -67,11 +64,11 @@
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
-  padding: 5px;
+  padding: 0.5rem;
 }
 .card-background > div {
   width: 100%;
-  background-color: #eee;
+  background-color: white;
   border-radius: 0.5rem;
   height: 100%;
 }
@@ -79,4 +76,44 @@
 .border-blue {
   border: 1px solid #3399ff;
   background-color: white;
+}
+.fontsize-12 p {
+  font-size: 14px;
+}
+.rounded-my {
+  border-radius: 12px;
+}
+h1 {
+  line-height: 1.2 !important;
+}
+.mh-6 {
+  min-height: 1.5rem;
+}
+.mw-6 {
+  min-width: 1.5rem;
+}
+.price {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  display: inline-block;
+}
+.price s {
+  text-decoration: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%) translateX(-5px);
+}
+.price s::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color: #d32f2f;
+  transform: translate(-50%, -50%) translateY(0px) rotate(4deg);
+  width: 110%;
+  border-radius: 10px;
+  height: 2px;
 }

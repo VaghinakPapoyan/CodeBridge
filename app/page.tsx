@@ -1,19 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import {
+  BookOpen,
+  CheckCircle,
+  Clock,
+  Code,
+  Globe,
+  Laptop,
+  Mail,
   MapPin,
   Phone,
-  Mail,
-  Clock,
-  Users,
-  BookOpen,
-  Star,
-  CheckCircle,
-  Code,
-  Laptop,
-  Globe,
   Smartphone,
+  Star,
+  Users,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -27,7 +26,7 @@ export default function CodeBridgeLanding() {
         <div className="container mx-auto px-3 py-3 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <Image
-              src="/images/codebridge-logo.png"
+              src="/images/codebridge-logo.webp"
               alt="CodeBridge Logo"
               width={170}
               height={60}
@@ -58,7 +57,7 @@ export default function CodeBridgeLanding() {
               Կոնտակտներ
             </Link>
           </nav>
-          <Button className="bg-secondary hover:bg-secondary/90 text-white">
+          <Button className="bg-secondary hover:bg-secondary/90 text-[#eee]">
             Գրանցվել Փորձնական Դասին
           </Button>
         </div>
@@ -71,18 +70,18 @@ export default function CodeBridgeLanding() {
             <div className="inline-block rounded-full bg-[#ff9933]/10 px-4 py-1 text-sm font-medium text-[#ff9933]">
               Վեբ Ծրագրավորման Դասընթացներ
             </div>
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-              Unlock Your Child's{" "}
-              <span className="text-[#3399ff]">Coding Potential</span>
+            <h1 className="main-text text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+              Սովորելը Երբեք <br />
+              <span className="text-[#3399ff]">Չի Հոգնեցնում</span>
             </h1>
             <p className="text-muted-foreground md:text-xl">
-              CodeBridge offers hands-on web programming courses for teens aged
-              13-17, building skills for the digital future.
+              CodeBridge-ը առաջարկում է բարձրակարգ ծրագրավորման դասընթացներ
+              Արմավիր քաղաքում
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Button
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-white "
+                className="bg-primary hover:bg-primary/90 text-[#eee] "
               >
                 Գրանցվել Փորձնական Դասին
               </Button>
@@ -96,12 +95,12 @@ export default function CodeBridgeLanding() {
             </div>
           </div>
 
-          <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden">
+          <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden gradient">
             <Image
-              src="/placeholder.svg?height=400&width=600"
+              src="/images/kids-computers.webp"
               alt="Students learning to code"
               fill
-              className="object-cover"
+              className="object-cover p-2 rounded-my overflow-hidden"
               priority
             />
           </div>
@@ -116,11 +115,9 @@ export default function CodeBridgeLanding() {
               Մեր Մասին
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed">
-              CodeBridge is a premier offline programming center dedicated to
-              teaching web development to teenagers. Our mission is to bridge
-              the gap between curiosity and capability, providing young minds
-              with the technical skills and creative confidence they need to
-              thrive in the digital age.
+              Մենք ծրագրավորման կենտրոն ենք Արմավիրում, որի նպատակն է տրամադրել
+              որակյալ կրթություն: Օգտագործելով դասավանդման ամենաժամանակակից
+              մեթոդները` վստահ ենք, որ մեր տված գիտելիքները պետք կգան բոլորին:
             </p>
 
             <div className="grid gap-10 md:grid-cols-3">
@@ -147,9 +144,9 @@ export default function CodeBridgeLanding() {
                     <path d="M5 13v6a2 2 0 0 0 2 2h12" />
                   </svg>
                 </div>
-                <h3 className="mb-2 text-lg font-medium">Practical Learning</h3>
+                <h3 className="mb-2 text-lg font-medium">Պրակտիկ Դասեր</h3>
                 <p className="text-gray-600">
-                  Hands-on projects that build real-world skills
+                  Մեր դասընթացների 80%-ը պրակտիկ աշխատանքներ են:
                 </p>
               </div>
               <div className="rounded-lg bg-[#3399ff]/5 p-6 text-center rounded-lg text-card-foreground bg-white border-0 shadow-lg">
@@ -172,9 +169,9 @@ export default function CodeBridgeLanding() {
                     <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                   </svg>
                 </div>
-                <h3 className="mb-2 text-lg font-medium">Expert Instructors</h3>
+                <h3 className="mb-2 text-lg font-medium">Ինտերակտիվ դասեր</h3>
                 <p className="text-gray-600">
-                  Learn from industry professionals
+                  Դասերը դինամիկ են, սովորում ենք խաղերով
                 </p>
               </div>
               <div className="rounded-lg bg-[#3399ff]/5 p-6 text-center rounded-lg text-card-foreground bg-white border-0 shadow-lg">
@@ -198,9 +195,10 @@ export default function CodeBridgeLanding() {
                     <path d="m15 12-3-3-3 3" />
                   </svg>
                 </div>
-                <h3 className="mb-2 text-lg font-medium">Modern Curriculum</h3>
+                <h3 className="mb-2 text-lg font-medium">Անհատական մոտեցում</h3>
                 <p className="text-gray-600">
-                  Up-to-date with industry standards
+                  Քանի որ խմբերը փոքր են, յուրաքանչյուրին կտրամադրվի անհատական
+                  մոտեցում
                 </p>
               </div>
             </div>
@@ -209,14 +207,14 @@ export default function CodeBridgeLanding() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-gradient-to-br from-primary/10 to-secondary/10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Ինչու՞ ընտրել մեզ
             </h2>
             <p className="text-xl text-gray-600">
-              What makes us different from other programming schools
+              Ինչո՞վ ենք մենք տարբերվում մյուս ծրագրավորման կենտրոններից
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
@@ -226,7 +224,7 @@ export default function CodeBridgeLanding() {
                   <Users className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900">
-                  Small Class Sizes
+                  Փոքր խմբեր{" "}
                 </h3>
                 <p className="text-gray-600">
                   Maximum 8 students per class ensures personalized attention
@@ -387,7 +385,7 @@ export default function CodeBridgeLanding() {
               Մեր Ծրագիրը
             </h2>
             <p className="text-xl text-gray-600">
-              Comprehensive curriculum designed for teenagers
+              Դասացուցակի մասին տեղեկություն
             </p>
           </div>
 
@@ -399,7 +397,7 @@ export default function CodeBridgeLanding() {
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-start space-x-3">
-                    <Clock className="h-6 w-6 text-primary mt-1" />
+                    <Clock className="h-6 w-6 text-primary mt-1 mh-6 mw-6" />
                     <div>
                       <p className="font-semibold text-gray-900">
                         Ժամակարգ և Տևողություն
@@ -411,7 +409,7 @@ export default function CodeBridgeLanding() {
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <Users className="h-6 w-6 text-primary mt-1" />
+                    <Users className="h-6 w-6 text-primary mt-1 mh-6 mw-6" />
                     <div>
                       <p className="font-semibold text-gray-900">
                         Խմբում աշակերտների քանակը
@@ -422,12 +420,13 @@ export default function CodeBridgeLanding() {
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <CheckCircle className="h-6 w-6 text-primary mt-1" />
+                    <CheckCircle className="h-6 w-6 text-primary mt-1 mh-6 mw-6" />
                     <div>
                       <p className="font-semibold text-gray-900">Պահանջներ</p>
                       <p className="text-gray-600">
                         Մենք տրամադրում ենք բոլոր անհրաժեշտ պարագաները սակայն
-                        ցանակի է ունենալ համակարգիչ տնայինները կատարելու համար
+                        ցանակի է ունենալ համակարգիչ տնային աշխատանքները
+                        կատարելու համար
                       </p>
                       <p className="text-gray-600">
                         Դասընթացների նախատեսված են 13-17 տարեկանների համար բայց
@@ -442,7 +441,7 @@ export default function CodeBridgeLanding() {
             <Card className="bg-white border-0 shadow-lg">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  Դասընթացների տեսակներ տեսակներ
+                  Դասընթացների տեսակներ
                 </h3>
                 <div className="space-y-6">
                   <div className="border-l-4 border-primary pl-4">
@@ -456,39 +455,39 @@ export default function CodeBridgeLanding() {
                       Վեբ ծրագրավորում
                     </h4>
                     <p className="text-gray-600">
-                      Խորացված Javascript, React js
+                      Խորացված Javascript, React JS
                     </p>
                   </div>
                   <div className="border-l-4 border-primary pl-4">
                     <h4 className="font-semibold text-gray-900">
                       Full-Stack Development
                     </h4>
-                    <p className="text-gray-600">
-                      Back-end Development + Front-end Development
-                    </p>
+                    <p className="text-gray-600">Node.js + React JS, Next,</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
           </div>
 
-          <Card className="bg-gradient-to-r from-primary to-secondary gradient">
+          <Card className="bg-gradient-to-r from-primary to-secondary gradient text-gray-900">
             <CardContent className="card-gradient">
-              <div className="card-background">
-                <div></div>
+              <div className="card-background ">
+                <div className="bg-gradient-to-br from-primary/10 to-secondary/10"></div>
               </div>
-              <div className="card-cont p-8 text-center">
-                <h3 className="text-3xl font-bold mb-4">Program Investment</h3>
-                <div className="text-5xl font-bold mb-2">$899</div>
-                <p className="text-xl mb-6">Complete 12-week program</p>
-                <div className="grid md:grid-cols-3 gap-4 text-sm mb-8">
-                  <div>✓ 48 hours of instruction</div>
-                  <div>✓ All materials included</div>
-                  <div>✓ Portfolio projects</div>
-                  <div>✓ Certificate of completion</div>
-                  <div>✓ Career guidance session</div>
-                  <div>✓ Lifetime access to resources</div>
+              <div className="card-cont p-7 pb-2 text-center">
+                <h3 className="text-3xl font-bold mb-5 text-gray-900">
+                  Ամսավճար
+                </h3>
+                <div className="mb-1 text-gray-900 price">
+                  <s className="text-2xl text-[#D32F2F]">30.000֏</s>
+                  <span className="font-bold text-4xl text-[#3399ff]">
+                    24.000֏
+                  </span>
                 </div>
+                <p className="text-xl mb-4 text-gray-900">
+                  Զեղչը գործում է միչև{" "}
+                  <span className="font-bold">Սեպտեմբերի 1</span>
+                </p>
                 <Button
                   size="lg"
                   className="border-blue text-[#3399ff] hover:bg-[#3399ff]/10 bg-[#eee] px-8 py-4 text-lg"
@@ -502,14 +501,14 @@ export default function CodeBridgeLanding() {
       </section>
 
       {/* What You Will Learn */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-gradient-to-br from-primary/10 to-secondary/10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Ինչ Կսովորի Ձեր Երեխան
             </h2>
             <p className="text-xl text-gray-600">
-              Essential skills for the digital future
+              Ինչ գիտելիքներ կունենաք Հիմնական կուրսը անցնելուց հետո
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -517,30 +516,25 @@ export default function CodeBridgeLanding() {
               <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
                 <Code className="h-10 w-10 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900">
-                HTML & CSS
-              </h3>
+              <h3 className="text-xl font-semibold text-gray-900">HTML</h3>
               <p className="text-gray-600">
-                Structure and style beautiful web pages from scratch
+                Կսովորենք բոլոր հիմնական թեգերը և նրանց նշանակությունը
               </p>
             </div>
             <div className="text-center space-y-4">
               <div className="w-20 h-20 bg-secondary/10 rounded-full flex items-center justify-center mx-auto">
                 <Globe className="h-10 w-10 text-secondary" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900">
-                JavaScript
-              </h3>
-              <p className="text-gray-600">
-                Add interactivity and dynamic features to websites
-              </p>
+              <h3 className="text-xl font-semibold text-gray-900">CSS</h3>
+              <p className="text-gray-600">Կսովորենք </p>
             </div>
             <div className="text-center space-y-4">
               <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
                 <Smartphone className="h-10 w-10 text-primary" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900">
-                Responsive Design
+                Responsive Design Add interactivity and dynamic features to
+                websites
               </h3>
               <p className="text-gray-600">
                 Create websites that work on all devices and screen sizes
@@ -565,7 +559,7 @@ export default function CodeBridgeLanding() {
             </h3>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
+                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-[#eee] font-bold text-xl">
                   1
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">
@@ -576,7 +570,7 @@ export default function CodeBridgeLanding() {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
+                <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4 text-[#eee] font-bold text-xl">
                   2
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">
@@ -587,7 +581,7 @@ export default function CodeBridgeLanding() {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
+                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-[#eee] font-bold text-xl">
                   3
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">
@@ -603,16 +597,13 @@ export default function CodeBridgeLanding() {
       </section>
 
       {/* Call to Action & Contact */}
-      <section
-        id="contact"
-        className="py-20 bg-gradient-to-br from-primary to-secondary text-white gradient1"
-      >
+      <section id="contact" className="py-20 text-[#eee] gradient1">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
               Պատրաստ ե՞ք սկսել ձեր
             </h2>
-            <p className="text-xl mb-8">Փ</p>
+            <p className="text-xl mb-8"></p>
             <Button
               size="lg"
               className="bg-white border-blue text-primary hover:bg-gray-100 px-8 py-4 text-lg mr-4"
@@ -623,7 +614,7 @@ export default function CodeBridgeLanding() {
 
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div className="space-y-4">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto">
+              <div className="w-16 h-16 bg-[#ff9933bb] rounded-full flex items-center justify-center mx-auto">
                 <MapPin className="h-8 w-8" />
               </div>
               <h3 className="text-xl font-semibold">Այցելեք մեր կենտրոն</h3>
@@ -634,7 +625,7 @@ export default function CodeBridgeLanding() {
               </p>
             </div>
             <div className="space-y-4">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto">
+              <div className="w-16 h-16 bg-[#ff9933bb] rounded-full flex items-center justify-center mx-auto">
                 <Phone className="h-8 w-8" />
               </div>
               <h3 className="text-xl font-semibold">Զանգահարեք մեզ</h3>
@@ -647,7 +638,7 @@ export default function CodeBridgeLanding() {
               </p>
             </div>
             <div className="space-y-4">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto">
+              <div className="w-16 h-16 bg-[#ff9933bb] rounded-full flex items-center justify-center mx-auto">
                 <Mail className="h-8 w-8" />
               </div>
               <h3 className="text-xl font-semibold">Գրեք մեզ էլ. փոստով</h3>
@@ -662,29 +653,29 @@ export default function CodeBridgeLanding() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-[#095590] text-[#eee] py-11">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="space-y-4">
               <Image
-                src="/images/codebridge-logo.png"
+                src="/images/codebridge-logo-footer.webp"
                 alt="CodeBridge Logo"
                 width={150}
                 height={45}
                 className="h-10 w-auto"
               />
-              <p className="text-gray-400">
+              <p className="text-[#eee]">
                 Empowering the next generation of web developers through
                 hands-on learning and expert instruction.
               </p>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-gray-400">
+              <ul className="space-y-2 text-[#eee]">
                 <li>
                   <Link
                     href="#about"
-                    className="hover:text-white transition-colors"
+                    className="hover:text-[#eee] transition-colors"
                   >
                     About Us
                   </Link>
@@ -692,7 +683,7 @@ export default function CodeBridgeLanding() {
                 <li>
                   <Link
                     href="#programs"
-                    className="hover:text-white transition-colors"
+                    className="hover:text-[#eee] transition-colors"
                   >
                     Programs
                   </Link>
@@ -700,7 +691,7 @@ export default function CodeBridgeLanding() {
                 {/* <li>
                   <Link
                     href="#testimonials"
-                    className="hover:text-white transition-colors"
+                    className="hover:text-[#eee] transition-colors"
                   >
                     Testimonials
                   </Link>
@@ -708,7 +699,7 @@ export default function CodeBridgeLanding() {
                 <li>
                   <Link
                     href="#contact"
-                    className="hover:text-white transition-colors"
+                    className="hover:text-[#eee] transition-colors"
                   >
                     Contact
                   </Link>
@@ -717,7 +708,7 @@ export default function CodeBridgeLanding() {
             </div>
             <div>
               <h4 className="font-semibold mb-4">Programs</h4>
-              <ul className="space-y-2 text-gray-400">
+              <ul className="space-y-2 text-[#eee]">
                 <li>Frontend Development</li>
                 <li>Backend Basics</li>
                 <li>Full-Stack Projects</li>
@@ -726,7 +717,7 @@ export default function CodeBridgeLanding() {
             </div>
             <div>
               <h4 className="font-semibold mb-4">Contact Info</h4>
-              <ul className="space-y-2 text-gray-400">
+              <ul className="space-y-2 text-[#eee]">
                 <li>123 Tech Street</li>
                 <li>Innovation District</li>
                 <li>Your City, State 12345</li>
@@ -734,7 +725,7 @@ export default function CodeBridgeLanding() {
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          <div className="border-t border-[#eee] mt-6 pt-6 text-center text-[#eee] fontsize-12">
             <p>
               &copy; {new Date().getFullYear()} CodeBridge Programming Center.
               All rights reserved.
