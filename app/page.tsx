@@ -22,6 +22,7 @@ export default function CodeBridgeLanding() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
+      <div className="not-ready">Կայքը դեռ վերջնականապես պատրաստ չէ!</div>
       <header className="bg-white shadow-sm sticky top-0 z-50">
         <div className="container mx-auto px-3 py-3 flex items-center justify-between">
           <div className="flex items-center space-x-3">
@@ -526,7 +527,7 @@ export default function CodeBridgeLanding() {
                 <Globe className="h-10 w-10 text-secondary" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900">CSS</h3>
-              <p className="text-gray-600">Կսովորենք </p>
+              <p className="text-gray-600">Կսովորենք սելեկտորները</p>
             </div>
             <div className="text-center space-y-4">
               <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
@@ -709,19 +710,18 @@ export default function CodeBridgeLanding() {
             <div>
               <h4 className="font-semibold mb-4">Programs</h4>
               <ul className="space-y-2 text-[#eee]">
-                <li>Frontend Development</li>
-                <li>Backend Basics</li>
-                <li>Full-Stack Projects</li>
-                <li>Portfolio Building</li>
+                <li>Frontend</li>
+                <li>Վեբ Ծրագրավորում</li>
+                <li>Full-Stack</li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Contact Info</h4>
               <ul className="space-y-2 text-[#eee]">
-                <li>123 Tech Street</li>
-                <li>Innovation District</li>
-                <li>Your City, State 12345</li>
-                <li>(555) 123-CODE</li>
+                <li>programming.school.armenia@gmail.com</li>
+                <li>vaghinak.papoyan@gmail.com</li>
+                <li>Ք. Արմավիր Հանրապետության 1</li>
+                <li>+374 (93) 62-62-02</li>
               </ul>
             </div>
           </div>
