@@ -28,8 +28,8 @@ export default function CodeBridgeLanding() {
             <Image
               src="/images/codebridge-logo.webp"
               alt="CodeBridge Logo"
-              width={170}
-              height={60}
+              width={64}
+              height={44}
               className="h-11 w-auto"
             />
             <div className="logo-text">
