@@ -59,7 +59,7 @@ export default function CodeBridgeLanding() {
             </Link>
           </nav>
           <Button className="bg-secondary hover:bg-secondary/90 text-[#eee]">
-            Գրանցվել Փորձնական Դասին
+            Գրանցվել հիմա
           </Button>
         </div>
       </header>
@@ -228,8 +228,7 @@ export default function CodeBridgeLanding() {
                   Փոքր խմբեր{" "}
                 </h3>
                 <p className="text-gray-600">
-                  Maximum 8 students per class ensures personalized attention
-                  and faster learning
+                  Մեր խմբերը բաղկացած են ամենաշատը 7-8 աշակերտներից
                 </p>
               </CardContent>
             </Card>
@@ -239,11 +238,10 @@ export default function CodeBridgeLanding() {
                   <BookOpen className="h-8 w-8 text-secondary" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900">
-                  Expert Instructors
+                  Ժամանակակից ուսուցում
                 </h3>
                 <p className="text-gray-600">
-                  Industry professionals with 5+ years of web development
-                  experience
+                  Մենք օգտագործում ենք դասավանդման ամենաժամանակակից մեթոդները
                 </p>
               </CardContent>
             </Card>
@@ -253,11 +251,10 @@ export default function CodeBridgeLanding() {
                   <Laptop className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900">
-                  Hands-On Learning
+                  Պետքական Դասեր
                 </h3>
                 <p className="text-gray-600">
-                  Build real projects from day one with our project-based
-                  curriculum
+                  Մեր տված գիտելիքները պետք կգան իրական աշխատանքի համար
                 </p>
               </CardContent>
             </Card>
@@ -267,11 +264,10 @@ export default function CodeBridgeLanding() {
                   <Clock className="h-8 w-8 text-secondary" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900">
-                  Flexible Scheduling
+                  Բարձրորակ Դասացուցակ
                 </h3>
                 <p className="text-gray-600">
-                  Weekend and after-school classes that fit your family's
-                  schedule
+                  Մենք ստեղծել ենք բարձրորակ և մտածված դասացուցակ
                 </p>
               </CardContent>
             </Card>
@@ -281,11 +277,10 @@ export default function CodeBridgeLanding() {
                   <CheckCircle className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900">
-                  Proven Results
+                  Սերտիֆիկատ
                 </h3>
                 <p className="text-gray-600">
-                  95% of our students complete the program and build their own
-                  websites
+                  Մենք տալիս ենք սերտիֆիկատ մեր բոլոր աշակերտներին
                 </p>
               </CardContent>
             </Card>
@@ -295,10 +290,10 @@ export default function CodeBridgeLanding() {
                   <Star className="h-8 w-8 text-secondary" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900">
-                  Offline Environment
+                  Հասանելի
                 </h3>
                 <p className="text-gray-600">
-                  Focused learning without online distractions and social media
+                  Մեր դասերը հասանելի են բոլորի համար
                 </p>
               </CardContent>
             </Card>
@@ -479,7 +474,7 @@ export default function CodeBridgeLanding() {
                 <h3 className="text-3xl font-bold mb-5 text-gray-900">
                   Ամսավճար
                 </h3>
-                <div className="mb-1 text-gray-900 price">
+                <div className="mb-1 text-gray-900 price price-sm">
                   <s className="text-2xl text-[#D32F2F]">30.000֏</s>
                   <span className="font-bold text-4xl text-[#3399ff]">
                     24.000֏
@@ -491,7 +486,7 @@ export default function CodeBridgeLanding() {
                 </p>
                 <Button
                   size="lg"
-                  className="border-blue text-[#3399ff] hover:bg-[#3399ff]/10 bg-[#eee] px-8 py-4 text-lg"
+                  className="sign-now-sm border-blue text-[#3399ff] hover:bg-[#3399ff]/10 bg-[#eee] px-8 py-4 text-lg"
                 >
                   ԳՐԱՆՑՎԻՐ ՀԻՄԱ ՓՈՐՁՆԱԿԱՆ ԴԱՍԻՆ
                 </Button>
@@ -519,7 +514,7 @@ export default function CodeBridgeLanding() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900">HTML</h3>
               <p className="text-gray-600">
-                Կսովորենք բոլոր հիմնական թեգերը և նրանց նշանակությունը
+                Կսովորենք բոլոր հիմնական թեգերը և ատրիբուտները
               </p>
             </div>
             <div className="text-center space-y-4">
@@ -527,7 +522,9 @@ export default function CodeBridgeLanding() {
                 <Globe className="h-10 w-10 text-secondary" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900">CSS</h3>
-              <p className="text-gray-600">Կսովորենք սելեկտորները</p>
+              <p className="text-gray-600">
+                Կսովորենք բոլոր հիմնական հատկությունները և բոլոր{" "}
+              </p>
             </div>
             <div className="text-center space-y-4">
               <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
@@ -607,9 +604,9 @@ export default function CodeBridgeLanding() {
             <p className="text-xl mb-8"></p>
             <Button
               size="lg"
-              className="bg-white border-blue text-primary hover:bg-gray-100 px-8 py-4 text-lg mr-4"
+              className="sign-now-sm bg-white border-blue text-primary hover:bg-gray-100 px-8 py-4 text-lg mr-4"
             >
-              Գրանցվեք Հիմա Փորձնական դասին
+              Գրանցվիր Հիմա Փորձնական Դասին
             </Button>
           </div>
 
@@ -644,7 +641,7 @@ export default function CodeBridgeLanding() {
               </div>
               <h3 className="text-xl font-semibold">Գրեք մեզ էլ. փոստով</h3>
               <p>
-                vaghinak.papoyan@gmail.com
+                info@codebridge.am
                 <br />
                 programming.school.armenia@gmail.com
               </p>
@@ -654,7 +651,7 @@ export default function CodeBridgeLanding() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#095590] text-[#eee] py-11">
+      <footer className="bg-[#095590] text-[#eee] py-9">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="space-y-4">
@@ -719,13 +716,13 @@ export default function CodeBridgeLanding() {
               <h4 className="font-semibold mb-4">Contact Info</h4>
               <ul className="space-y-2 text-[#eee]">
                 <li>programming.school.armenia@gmail.com</li>
-                <li>vaghinak.papoyan@gmail.com</li>
+                <li>info@codebridge.am</li>
                 <li>Ք. Արմավիր Հանրապետության 1</li>
                 <li>+374 (93) 62-62-02</li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-[#eee] mt-6 pt-6 text-center text-[#eee] fontsize-12">
+          <div className="border-t border-[#eee] mt-5 pt-5 text-center text-[#eee] fontsize-12">
             <p>
               &copy; {new Date().getFullYear()} CodeBridge Programming Center.
               All rights reserved.

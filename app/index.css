@@ -125,3 +125,32 @@ h1 {
   border-radius: 10px;
   height: 2px;
 }
+.sign-now-sm {
+}
+@media screen and (max-width: 555px) {
+  .sign-now-sm {
+    height: auto;
+    font-size: 16px;
+    white-space: wrap;
+    padding: 5px 10px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .price-sm s {
+    position: relative;
+    transform: none;
+    top: 0;
+    line-height: 1;
+    left: 0;
+  }
+  .price-sm span {
+    line-height: 1;
+    position: static;
+  }
+  .price-sm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
