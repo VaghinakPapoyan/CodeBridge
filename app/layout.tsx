@@ -1,6 +1,6 @@
-import type React from "react";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import type React from "react";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -10,10 +10,15 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "CodeBridge - Web Programming for Teens",
+  title: "CodeBridge - Ծրագրավորման դպրոց Արմավիրում",
   description:
-    "Offline programming center specializing in web development courses for teenagers aged 13-17",
+    "Օֆլայն ծրագրավորման դասընթացներ, որակյալ դասեր Արմավիր քաղաքում",
   generator: "v0.dev",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
