@@ -10,8 +10,8 @@ export async function POST(request: NextRequest) {
     const transporter = nodemailer.createTransport({
       service: "gmail", // or your preferred email service
       auth: {
-        user: process.env.SMTP_USER, // Your email
-        pass: process.env.SMTP_PASS, // Your app password
+        user: "programming.school.armenia@gmail.com", // Your email
+        pass: "wton geft ldga adxi", // Your app password
       },
     });
     console.log("3");
@@ -74,8 +74,8 @@ export async function POST(request: NextRequest) {
 
     // Send email
     await transporter.sendMail({
-      from: process.env.SMTP_USER,
-      to: process.env.RECIPIENT_EMAIL, // Your Gmail where you want to receive registrations
+      from: "programming.school.armenia@gmail.com",
+      to: "info@codebridge.am", // Your Gmail where you want to receive registrations
       subject: `🎓 Նոր գրանցում CodeBridge-ում - ${name}`,
       html: htmlTemplate,
       text: `
