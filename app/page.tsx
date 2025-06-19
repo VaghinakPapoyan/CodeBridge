@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   BookOpen,
+  Brain,
+  Brush,
   CheckCircle,
   Clock,
   Code,
@@ -13,14 +15,12 @@ import {
   Phone,
   Star,
   Users,
-  Brush,
-  Brain,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import "./index.css";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import RegistrationForm from "../components/Form"; // Adjust path as needed
 
 export default function CodeBridgeLanding() {
@@ -176,7 +176,7 @@ export default function CodeBridgeLanding() {
                     <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
                   </svg>
                 </div>
-                <h3 className="mb-2 text-lg font-medium">Ինտերակտիվ դասեր</h3>
+                <h3 className="mb-2 text-lg font-medium">Ինտերակտիվ Դասեր</h3>
                 <p className="text-gray-600">
                   Դասընթացները դինամիկ են, սովորում ենք խաղերով
                 </p>
@@ -201,7 +201,7 @@ export default function CodeBridgeLanding() {
                     <path d="M4 20c0-4 4-6 8-6s8 2 8 6" />
                   </svg>
                 </div>
-                <h3 className="mb-2 text-lg font-medium">Անհատական մոտեցում</h3>
+                <h3 className="mb-2 text-lg font-medium">Անհատական Մոտեցում</h3>
                 <p className="text-gray-600">
                   Քանի որ խմբերը փոքր են, յուրաքանչյուրին կտրամադրվի անհատական
                   մոտեցում
@@ -217,7 +217,7 @@ export default function CodeBridgeLanding() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Ինչու՞ ընտրել մեզ
+              Ինչու՞ Ընտրել Մեզ
             </h2>
             <p className="text-xl text-gray-600">
               Ինչո՞վ ենք մենք տարբերվում ծրագրավորման մյուս կենտրոններից
@@ -230,7 +230,7 @@ export default function CodeBridgeLanding() {
                   <Users className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900">
-                  Փոքր խմբեր{" "}
+                  Փոքր Խմբեր{" "}
                 </h3>
                 <p className="text-gray-600">
                   Մեր խմբերը բաղկացած են առավելագույնը 7-8 աշակերտներից
@@ -243,7 +243,7 @@ export default function CodeBridgeLanding() {
                   <BookOpen className="h-8 w-8 text-secondary" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900">
-                  Ժամանակակից ուսուցում
+                  Ժամանակակից ՈՒսուցում
                 </h3>
                 <p className="text-gray-600">
                   Մենք օգտագործում ենք դասավանդման ամենաժամանակակից մեթոդները
@@ -269,7 +269,7 @@ export default function CodeBridgeLanding() {
                   <Clock className="h-8 w-8 text-secondary" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900">
-                  Արդի ծրագիր
+                  Արդի Ծրագիր
                 </h3>
                 <p className="text-gray-600">
                   Մենք կազմել ենք արդի ուսումնական ծրագիր
@@ -531,7 +531,7 @@ export default function CodeBridgeLanding() {
 
               <h3 className="text-xl font-semibold text-gray-900">CSS</h3>
               <p className="text-gray-600">
-                Կսովորենք բոլոր հիմնական հատկությունները և բոլոր{" "}
+                Կսովորենք բոլոր հիմնական հատկությունները
               </p>
               <p className="mt-0 text-gray-600">Կստեղծենք կայքի տեսքը</p>
             </div>
@@ -552,7 +552,7 @@ export default function CodeBridgeLanding() {
                 <Laptop className="h-10 w-10 text-secondary" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900">
-                Կայքերի ստեղծում
+                Կայքերի Ստեղծում
               </h3>
               <p className="text-gray-600">
                 Օգտագործելով մեր ամբողջ գիտելիքները կանցնենք կայք ստեղծելու
@@ -563,7 +563,7 @@ export default function CodeBridgeLanding() {
 
           <div className="mt-16 bg-white rounded-lg p-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-1 text-center">
-              Փափուկ հմտություններ
+              Փափուկ Հմտություններ
             </h3>
             <div className="dfjccaic mb-6">
               <h4 className="font-Semi-bold text-gray-900 text-center text-primary-underline">
@@ -577,7 +577,7 @@ export default function CodeBridgeLanding() {
                   1
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">
-                  Ալգորիթմիկ մտածելակերպ
+                  Ալգորիթմիկ Մտածելակերպ
                 </h4>
                 <p className="text-gray-600">Խնդիրները քայլ առ քայլ լուծել։</p>
               </div>
@@ -586,7 +586,7 @@ export default function CodeBridgeLanding() {
                   2
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">
-                  Քննադատական մտածելակերպ
+                  Քննադատական Մտածելակերպ
                 </h4>
                 <p className="text-gray-600">
                   Տրամաբանական և վերլուծական մոտեցում խնդիրներին
@@ -597,7 +597,7 @@ export default function CodeBridgeLanding() {
                   3
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">
-                  Խնդիր-լուծում մտածելակերպ{" "}
+                  Խնդիր-Լուծում Մտածելակերպ{" "}
                 </h4>
                 <p className="text-gray-600">Լուծումներ գտնելու ունակություն</p>
               </div>
@@ -611,7 +611,7 @@ export default function CodeBridgeLanding() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              Պատրաստ ե՞ք սկսել ձեր ուղին
+              Պատրաստ Ե՞ք Սկսել Ձեր ՈՒղին
             </h2>
             <p className="text-xl mb-8"></p>
             <Button

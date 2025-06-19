@@ -5,7 +5,6 @@ export async function POST(request: NextRequest) {
   try {
     const { name, phone, email, timestamp } = await request.json();
 
-    console.log("1");
     // Create transporter (you'll need to configure this with your email provider)
     const transporter = nodemailer.createTransport({
       service: "gmail", // or your preferred email service
@@ -14,7 +13,6 @@ export async function POST(request: NextRequest) {
         pass: "wton geft ldga adxi", // Your app password
       },
     });
-    console.log("3");
     // Format the date
     const formattedDate = new Date(timestamp).toLocaleString("hy-AM", {
       year: "numeric",
@@ -70,7 +68,6 @@ export async function POST(request: NextRequest) {
     </body>
     </html>
     `;
-    console.log("4");
 
     // Send email
     await transporter.sendMail({
@@ -88,7 +85,6 @@ export async function POST(request: NextRequest) {
       `,
     });
 
-    console.log("5");
     return NextResponse.json(
       { message: "Registration sent successfully" },
       { status: 200 }
