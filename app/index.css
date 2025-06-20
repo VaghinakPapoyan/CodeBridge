@@ -171,6 +171,15 @@ h1 {
   top: 100%;
   transform: translate(-50%, -100%) translateY(2px);
 }
+.orangee {
+  background-color: #ff9933;
+  padding: 3px 10px;
+  display: inline-block;
+  border-radius: 4px;
+  color: #eee;
+}
+.orangee p {
+}
 .dfjccaic {
   display: flex;
   justify-content: center;
