@@ -1,461 +1,408 @@
 "use client";
-import React, { useState, useEffect } from "react";
 
-// Main React component for the HTML Tables explanation page
-const HomePage: React.FC = () => {
-  // State to hold the input for the interactive table
-  const [tableInput, setTableInput] = useState<string>(`Անուն,Ազգանուն,Տարիք
-Աննա,Հովհաննիսյան,15
-Դավիթ,Մանուկյան,17
-Մարիամ,Պետրոսյան,16`);
-  // State to hold the HTML string for the live preview table
-  const [liveTableHtml, setLiveTableHtml] = useState<string>("");
-  // State to hold the HTML code string for the live code preview
-  const [liveCodeHtml, setLiveCodeHtml] = useState<string>("");
-  // State to control the visibility of the generated code container
-  const [showCode, setShowCode] = useState<boolean>(false);
+import React from "react";
 
-  /**
-   * Generates the HTML table and its corresponding code based on the tableInput state.
-   * Updates liveTableHtml and liveCodeHtml states.
-   */
-  const generateTable = () => {
-    const inputText = tableInput.trim();
-    // Split the input text into rows, then each row into cells
-    const rows = inputText
-      .split("\n")
-      .map((row) => row.split(",").map((cell) => cell.trim()));
+// This component explains HTML form elements in Armenian for teenagers.
+// It uses Tailwind CSS for styling and is designed to be responsive.
 
-    let currentTableHtml =
-      '<table class="w-full border-collapse my-6 rounded-lg overflow-hidden shadow-sm">';
-    let currentTableCode = "&lt;table&gt;\n";
-
-    // Iterate over rows to build the table HTML and code
-    rows.forEach((rowData, rowIndex) => {
-      currentTableHtml += '<tr class="even:bg-gray-50 hover:bg-gray-100">';
-      currentTableCode += "    &lt;tr&gt;\n";
-      rowData.forEach((cellData) => {
-        if (rowIndex === 0) {
-          // The first row is treated as table headers (<th>)
-          currentTableHtml += `<th class="border border-gray-300 p-3 text-left bg-[#3399ff] text-white font-bold">${cellData}</th>`;
-          currentTableCode += `        &lt;th&gt;${cellData}&lt;/th&gt;\n`;
-        } else {
-          // Subsequent rows are table data cells (<td>)
-          currentTableHtml += `<td class="border border-gray-300 p-3 text-left">${cellData}</td>`;
-          currentTableCode += `        &lt;td&gt;${cellData}&lt;/td&gt;\n`;
-        }
-      });
-      currentTableHtml += "</tr>";
-      currentTableCode += "    &lt;/tr&gt;\n";
-    });
-    currentTableHtml += "</table>";
-    currentTableCode += "&lt;/table&gt;";
-
-    // Update the state variables
-    setLiveTableHtml(currentTableHtml);
-    setLiveCodeHtml(currentTableCode);
-  };
-
-  // useEffect hook to generate the table initially when the component mounts
-  useEffect(() => {
-    generateTable();
-  }, []); // Empty dependency array means this runs once on mount
-
-  /**
-   * Handles the click event for the "Generate Table" button.
-   * Calls the generateTable function to update the table preview.
-   */
-  const handleGenerateTableClick = () => {
-    generateTable();
-  };
-
-  /**
-   * Handles the click event for the "Show Code" button.
-   * Toggles the visibility of the generated code container.
-   */
-  const handleShowCodeClick = () => {
-    setShowCode((prevShowCode) => !prevShowCode);
-  };
-
+const FormElementsPage = () => {
   return (
-    <div className="font-inter bg-[#eee] text-[#333] leading-relaxed min-h-screen py-8">
-      <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
-        {/* Main Title */}
-        <h1 className="text-4xl text-[#3399ff] font-bold text-center mb-8">
-          <span className="text-[#3399ff]">ՀՏՄԼ Աղյուսակներ</span> Դեռահասների
-          Համար
-        </h1>
-        <p className="mb-4">
-          {" "}
-          Աղյուսակները հիանալի միջոց են տվյալները կազմակերպված և հեշտ ընթեռնելի
-          ձևով ներկայացնելու համար։
-        </p>
-        <p className="mb-4">
-          Պատկերացրեք, որ ցանկանում եք ցույց տալ ձեր դասացուցակը, սպորտային թիմի
-          միավորները կամ նույնիսկ ձեր սիրելի խաղերի ցուցակը։ Աղյուսակները դրա
-          համար լավագույգ տարբերակն են։
-        </p>
+    // The main container for the page content.
+    // Tailwind's p-4 and sm:p-8 provide responsive padding.
+    <div className="p-4 sm:p-8 bg-gray-100 min-h-screen">
+      {/* Custom styles are embedded here. In a real Next.js app,
+                these would typically be in a global CSS file or
+                configured via Tailwind's theme extension. */}
+      <style jsx global>{`
+        :root {
+          --color-primary: #3399ff; /* Blue */
+          --color-secondary: #ff9933; /* Orange */
+          --color-background: #eee; /* Light Gray */
+        }
 
-        {/* Table Tag Section */}
-        <section className="mb-8">
-          <h2 className="text-3xl text-[#3399ff] font-bold border-b-2 border-[#ff9933] pb-2 mb-4 mt-8">
-            1. &lt;table&gt; - Աղյուսակ Ստեղծող Թեգ
-          </h2>
-          <p className="mb-4">
-            Ամեն ինչ սկսվում է{" "}
-            <code className="bg-gray-100 px-1 py-0.5 rounded text-[#3399ff] font-mono">
-              &lt;table&gt;
-            </code>{" "}
-            թեգից։ Սա այն հիմնական տարան է, որի մեջ դուք կտեղադրեք ձեր ամբողջ
-            աղյուսակը։ Այն ասում է բրաուզերին, որ այստեղ աղյուսակ է սկսվում։
-          </p>
-          <h3 className="text-xl text-[#ff9933] font-bold mt-6 mb-3">
-            Օրինակ:
-          </h3>
-          <pre className="bg-[#2d2d2d] text-[#f8f8f2] p-4 rounded-lg overflow-x-auto mb-6 font-mono">
-            &lt;table&gt; &lt;!-- Այստեղ կգնա ձեր աղյուսակի պարունակությունը
-            --&gt; &lt;/table&gt;
-          </pre>
-        </section>
+        body {
+          font-family: "Inter", sans-serif; /* Using Inter font */
+          background-color: var(--color-background);
+          color: #333; /* Dark text for readability */
+        }
 
-        {/* TR Tag Section */}
-        <section className="mb-8">
-          <h2 className="text-3xl text-[#3399ff] font-bold border-b-2 border-[#ff9933] pb-2 mb-4 mt-8">
-            2. &lt;tr&gt; - Աղյուսակի Տող
-          </h2>
-          <p className="mb-4">
-            Աղյուսակը բաղկացած է տողերից։ Ամեն մի տող ստեղծվում է{" "}
-            <code className="bg-gray-100 px-1 py-0.5 rounded text-[#3399ff] font-mono">
-              &lt;tr&gt;
-            </code>{" "}
-            (table row) թեգի միջոցով։ Պատկերացրեք, որ սա աղյուսակի մեկ շարքն է։
-          </p>
-          <h3 className="text-xl text-[#ff9933] font-bold mt-6 mb-3">
-            Օրինակ:
-          </h3>
-          <pre className="bg-[#2d2d2d] text-[#f8f8f2] p-4 rounded-lg overflow-x-auto mb-6 font-mono">
-            &lt;table&gt; &lt;tr&gt; &lt;!-- Այստեղ կգնան տողի բջիջները --&gt;
-            &lt;/tr&gt; &lt;tr&gt; &lt;!-- Երկրորդ տող --&gt; &lt;/tr&gt;
-            &lt;/table&gt;
-          </pre>
-        </section>
+        .text-primary {
+          color: var(--color-primary);
+        }
 
-        {/* TD Tag Section */}
-        <section className="mb-8">
-          <h2 className="text-3xl text-[#3399ff] font-bold border-b-2 border-[#ff9933] pb-2 mb-4 mt-8">
-            3. &lt;td&gt; - Աղյուսակի Բջիջ (Տվյալներ)
-          </h2>
-          <p className="mb-4">
-            Ամեն տողի ներսում դուք տեղադրում եք բջիջներ։ Այդ բջիջները
-            պարունակում են ձեր տվյալները։ Սրանք ստեղծվում են{" "}
-            <code className="bg-gray-100 px-1 py-0.5 rounded text-[#3399ff] font-mono">
-              &lt;td&gt;
-            </code>{" "}
-            (table data) թեգի միջոցով։ Սա աղյուսակի ամենափոքր միավորն է, որտեղ
-            դուք գրում եք ձեր տեղեկատվությունը։
+        .bg-primary {
+          background-color: var(--color-primary);
+        }
+
+        .border-primary {
+          border-color: var(--color-primary);
+        }
+
+        .text-secondary {
+          color: var(--color-secondary);
+        }
+
+        .bg-secondary {
+          background-color: var(--color-secondary);
+        }
+
+        .border-secondary {
+          border-color: var(--color-secondary);
+        }
+
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+          width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+          background: #f1f1f1;
+          border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background: var(--color-primary);
+          border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+          background: #2a80d9;
+        }
+      `}</style>
+
+      {/* Tailwind CSS CDN script. In a Next.js project,
+                Tailwind is usually set up via `postcss.config.js` and `tailwind.config.js`
+                and imported in `globals.css`. For a self-contained example, CDN is used. */}
+      <script src="https://cdn.tailwindcss.com"></script>
+
+      {/* Main content wrapper with max-width, auto margins for centering,
+                padding, rounded corners, and shadow. */}
+      <div className="max-w-4xl mx-auto bg-white p-6 md:p-10 rounded-lg shadow-lg">
+        {/* Header Section */}
+        <header className="text-center mb-10">
+          <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
+            Վեբ Forms. Ինչպե՞ս ենք հավաքում տվյալներ կայքերում
+          </h1>
+          <p className="text-lg text-gray-700">
+            Երբևէ մտածե՞լ եք, թե ինչպես են կայքերը հարցնում ձեր անունը, էլ.
+            փոստը կամ թույլ տալիս գրել մեկնաբանություններ: Դա կատարվում է
+            formերի (forms) միջոցով: Եկեք միասին բացահայտենք դրանց գաղտնիքները:
           </p>
-          <h3 className="text-xl text-[#ff9933] font-bold mt-6 mb-3">
-            Օրինակ:
-          </h3>
-          <pre className="bg-[#2d2d2d] text-[#f8f8f2] p-4 rounded-lg overflow-x-auto mb-6 font-mono">
-            &lt;table&gt; &lt;tr&gt; &lt;td&gt;Անուն&lt;/td&gt;
-            &lt;td&gt;Ազգանուն&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;
-            &lt;td&gt;Արմեն&lt;/td&gt; &lt;td&gt;Գրիգորյան&lt;/td&gt;
-            &lt;/tr&gt; &lt;/table&gt;
-          </pre>
-          <div className="bg-white p-6 rounded-lg shadow-md mt-8">
-            <h3 className="text-xl text-[#ff9933] font-bold mb-4">
-              Օրինակ՝ Ինչպես է այն երևում:
-            </h3>
-            <table className="w-full border-collapse my-6 rounded-lg overflow-hidden shadow-sm">
-              <thead>
-                <tr>
-                  <td className="border border-gray-300 p-3 text-left">
-                    Անուն
-                  </td>
-                  <td className="border border-gray-300 p-3 text-left">
-                    Ազգանուն
-                  </td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="border border-gray-300 p-3 text-left">
-                    Արմեն
-                  </td>
-                  <td className="border border-gray-300 p-3 text-left">
-                    Գրիգորյան
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+        </header>
+
+        {/* Form Element Section */}
+        <section className="mb-8 p-6 bg-blue-50 rounded-lg shadow-md">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-secondary mb-4">
+            1. &lt;form&gt; - Ամբողջ Form-ի Տուփը
+          </h2>
+          <p className="text-gray-800 mb-4">
+            Պատկերացրեք, որ ցանկանում եք հավաքել մի քանի իրեր մեկ տուփի մեջ:
+            HTML-ում &lt;form&gt; թեգը հենց այդ տուփն է: Այն պարունակում է բոլոր
+            մյուս տարրերը (ինչպես դաշտերը, կոճակները), որոնք կազմում են ձեր
+            formը: Այն ասում է բրաուզերին, որ այս բոլոր տարրերը կապված են և
+            նախատեսված են տվյիներ ուղարկելու համար:
+          </p>
+          <p className="text-gray-800 mb-4">
+            <span className="font-bold text-primary">Կարևոր ատրիբուտներ՝</span>
+            <ul className="list-disc list-inside ml-4 mt-2 text-gray-700">
+              <li>
+                <span className="font-semibold">action:</span> Սա այն հասցեն է
+                (URL), ուր կուղարկվեն ձեր մուտքագրած տվյալները, երբ սեղմեք
+                "Ուղարկել" կոճակը: Սովորաբար սա սերվերի վրա գտնվող ֆայլ է, որը
+                կմշակի տվյալները:
+              </li>
+              <li>
+                <span className="font-semibold">method:</span> Սա ցույց է տալիս,
+                թե ինչպես են տվյալները ուղարկվելու: Ամենատարածվածներն են{" "}
+                <code className="bg-gray-200 p-1 rounded">GET</code> (տվյալները
+                երևում են URL-ում, լավ է փոքր, ոչ գաղտնի տվյալների համար) և{" "}
+                <code className="bg-gray-200 p-1 rounded">POST</code> (տվյալները
+                թաքնված են, լավ է գաղտնաբառերի կամ մեծ տվյալների համար):
+              </li>
+            </ul>
+          </p>
+          <div className="bg-gray-100 p-4 rounded-md overflow-x-auto text-sm">
+            <pre>
+              <code className="language-html">
+                &lt;form action=&quot;/submit-data&quot;
+                method=&quot;POST&quot;&gt; &lt;!-- Այստեղ կլինեն Form-ի մյուս
+                տարրերը --&gt; &lt;/form&gt;
+              </code>
+            </pre>
           </div>
         </section>
 
-        {/* TH Tag Section */}
-        <section className="mb-8">
-          <h2 className="text-3xl text-[#3399ff] font-bold border-b-2 border-[#ff9933] pb-2 mb-4 mt-8">
-            4. &lt;th&gt; - Աղյուսակի Վերնագրի Բջիջ
+        {/* Input Element Section */}
+        <section className="mb-8 p-6 bg-orange-50 rounded-lg shadow-md">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-primary mb-4">
+            2. &lt;input&gt; - Տարբեր Տեսակի Դաշտեր
           </h2>
-          <p className="mb-4">
-            Երբեմն աղյուսակի առաջին տողը պարունակում է վերնագրեր, որոնք
-            նկարագրում են սյունակների պարունակությունը (օրինակ՝ "Անուն",
-            "Տարիք")։ Այդ վերնագրերի համար օգտագործվում է{" "}
-            <code className="bg-gray-100 px-1 py-0.5 rounded text-[#3399ff] font-mono">
-              &lt;th&gt;
-            </code>{" "}
-            (table header) թեգը։ Այն ավտոմատ կերպով տեքստը դարձնում է{" "}
-            <span className="font-bold">թավ</span> և կենտրոնացնում է այն,
-            որպեսզի ավելի հեշտ լինի տարբերելը։
+          <p className="text-gray-800 mb-4">
+            &lt;input&gt; թեգը ամենատարածվածն է և ամենաբազմազանը: Այն
+            օգտագործվում է օգտատերերից տարբեր տեսակի տվյալներ ստանալու համար՝
+            տեքստ, թվեր, գաղտնաբառեր, ամսաթվեր և այլն: Դրա տեսակը որոշվում է{" "}
+            <code className="bg-gray-200 p-1 rounded">type</code> ատրիբուտով:
           </p>
-          <h3 className="text-xl text-[#ff9933] font-bold mt-6 mb-3">
-            Օրինակ:
-          </h3>
-          <pre className="bg-[#2d2d2d] text-[#f8f8f2] p-4 rounded-lg overflow-x-auto mb-6 font-mono">
-            &lt;table&gt; &lt;tr&gt; &lt;th&gt;Անուն&lt;/th&gt;
-            &lt;th&gt;Ազգանուն&lt;/th&gt; &lt;th&gt;Տարիք&lt;/th&gt; &lt;/tr&gt;
-            &lt;tr&gt; &lt;td&gt;Արմեն&lt;/td&gt; &lt;td&gt;Գրիգորյան&lt;/td&gt;
-            &lt;td&gt;16&lt;/td&gt; &lt;/tr&gt; &lt;/table&gt;
-          </pre>
-          <div className="bg-white p-6 rounded-lg shadow-md mt-8">
-            <h3 className="text-xl text-[#ff9933] font-bold mb-4">
-              Օրինակ՝ Ինչպես է այն երևում:
-            </h3>
-            <table className="w-full border-collapse my-6 rounded-lg overflow-hidden shadow-sm">
-              <thead>
-                <tr>
-                  <th className="border border-gray-300 p-3 text-left bg-[#3399ff] text-white font-bold">
-                    Անուն
-                  </th>
-                  <th className="border border-gray-300 p-3 text-left bg-[#3399ff] text-white font-bold">
-                    Ազգանուն
-                  </th>
-                  <th className="border border-gray-300 p-3 text-left bg-[#3399ff] text-white font-bold">
-                    Տարիք
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="border border-gray-300 p-3 text-left">
-                    Արմեն
-                  </td>
-                  <td className="border border-gray-300 p-3 text-left">
-                    Գրիգորյան
-                  </td>
-                  <td className="border border-gray-300 p-3 text-left">16</td>
-                </tr>
-              </tbody>
-            </table>
+          <p className="text-gray-800 mb-4">
+            <span className="font-bold text-secondary">
+              Հաճախ օգտագործվող{" "}
+              <code className="bg-gray-200 p-1 rounded">type</code> ատրիբուտներ՝
+            </span>
+            <ul className="list-disc list-inside ml-4 mt-2 text-gray-700">
+              <li>
+                <span className="font-semibold">text:</span> Սովորական տեքստային
+                դաշտ (անուն, ազգանուն և այլն):
+              </li>
+              <li>
+                <span className="font-semibold">password:</span> Գաղտնաբառի դաշտ
+                (գրված տեքստը աստղանիշերով է երևում):
+              </li>
+              <li>
+                <span className="font-semibold">email:</span> Էլ. փոստի հասցեի
+                դաշտ (բրաուզերը կարող է ստուգել, թե արդյոք ճիշտ է formաչափը):
+              </li>
+              <li>
+                <span className="font-semibold">number:</span> Միայն թվեր
+                մուտքագրելու համար:
+              </li>
+              <li>
+                <span className="font-semibold">checkbox:</span> Ընտրության
+                վանդակ (կարող եք ընտրել մեկ կամ մի քանի տարբերակ):
+              </li>
+              <li>
+                <span className="font-semibold">radio:</span> Ռադիո կոճակ (կարող
+                եք ընտրել միայն մեկ տարբերակ մի քանիսից):
+              </li>
+              <li>
+                <span className="font-semibold">submit:</span> formը ուղարկելու
+                կոճակ:
+              </li>
+            </ul>
+          </p>
+          <p className="text-gray-800 mb-4">
+            <span className="font-bold text-secondary">
+              Այլ կարևոր ատրիբուտներ՝
+            </span>
+            <ul className="list-disc list-inside ml-4 mt-2 text-gray-700">
+              <li>
+                <span className="font-semibold">name:</span> Սա դաշտի անունն է,
+                որի միջոցով սերվերը կճանաչի տվյալը (օրինակ՝ "username",
+                "email").
+              </li>
+              <li>
+                <span className="font-semibold">id:</span> Յուրահատուկ
+                նույնացուցիչ տվյալ դաշտի համար: Օգտագործվում է{" "}
+                <code className="bg-gray-200 p-1 rounded">&lt;label&gt;</code>-ի
+                հետ կապելու համար:
+              </li>
+              <li>
+                <span className="font-semibold">placeholder:</span> Դաշտի
+                ներսում հայտնվող օգնող տեքստ, որը անհետանում է, երբ սկսում եք
+                մուտքագրել:
+              </li>
+              <li>
+                <span className="font-semibold">required:</span> Եթե այս
+                ատրիբուտը կա, ապա դաշտը պարտադիր է լրացնել:
+              </li>
+            </ul>
+          </p>
+          <div className="bg-gray-100 p-4 rounded-md overflow-x-auto text-sm">
+            <pre>
+              <code className="language-html">
+                &lt;input type=&quot;text&quot; id=&quot;username&quot;
+                name=&quot;username&quot; placeholder=&quot;Ձեր անունը&quot;
+                required className=&quot;p-2 border rounded-md w-full&quot;/&gt;
+                &lt;input type=&quot;password&quot; id=&quot;password&quot;
+                name=&quot;password&quot; placeholder=&quot;Գաղտնաբառ&quot;
+                className=&quot;p-2 border rounded-md w-full mt-2&quot;/&gt;
+                &lt;input type=&quot;email&quot; id=&quot;user_email&quot;
+                name=&quot;user_email&quot; placeholder=&quot;Էլ. փոստ&quot;
+                className=&quot;p-2 border rounded-md w-full mt-2&quot;/&gt;
+                &lt;input type=&quot;checkbox&quot; id=&quot;agree&quot;
+                name=&quot;agree&quot; className=&quot;mr-2 mt-2&quot;/&gt;
+                &lt;label htmlFor=&quot;agree&quot;&gt;Համաձայն եմ
+                պայմաններին&lt;/label&gt;
+              </code>
+            </pre>
           </div>
         </section>
 
-        {/* Colspan Section */}
-        <section className="mb-8">
-          <h2 className="text-3xl text-[#3399ff] font-bold border-b-2 border-[#ff9933] pb-2 mb-4 mt-8">
-            5. colspan - Սյունակների Միացում
+        {/* Label Element Section */}
+        <section className="mb-8 p-6 bg-blue-50 rounded-lg shadow-md">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-secondary mb-4">
+            3. &lt;label&gt; - Դաշտի Բացատրություն
           </h2>
-          <p className="mb-4">
-            Երբեմն ցանկանում եք, որ մեկ բջիջը զբաղեցնի մի քանի սյունակի տեղ։ Դրա
-            համար օգտագործվում է{" "}
-            <code className="bg-gray-100 px-1 py-0.5 rounded text-[#3399ff] font-mono">
-              colspan
-            </code>{" "}
-            հատկանիշը։ Դուք պարզապես տալիս եք նրան այն սյունակների քանակը, որոնք
-            ցանկանում եք միացնել։
+          <p className="text-gray-800 mb-4">
+            &lt;label&gt; թեգը նման է ցուցանակի, որը բացատրում է, թե ինչի համար
+            է նախատեսված տվյալ դաշտը: Օրինակ, եթե ունեք &lt;input&gt; դաշտ,
+            որտեղ պետք է մուտքագրել անունը, &lt;label&gt;-ը կլինի "Անուն:" բառը:
           </p>
-          <h3 className="text-xl text-[#ff9933] font-bold mt-6 mb-3">
-            Օրինակ:
-          </h3>
-          <pre className="bg-[#2d2d2d] text-[#f8f8f2] p-4 rounded-lg overflow-x-auto mb-6 font-mono">
-            &lt;table&gt; &lt;tr&gt; &lt;th{" "}
-            <span className="text-[#ff9933]">colspan="2"</span>&gt;Անուն և
-            Ազգանուն&lt;/th&gt; &lt;th&gt;Տարիք&lt;/th&gt; &lt;/tr&gt;
-            &lt;tr&gt; &lt;td&gt;Արմեն&lt;/td&gt; &lt;td&gt;Գրիգորյան&lt;/td&gt;
-            &lt;td&gt;16&lt;/td&gt; &lt;/tr&gt; &lt;/table&gt;
-          </pre>
-          <div className="bg-white p-6 rounded-lg shadow-md mt-8">
-            <h3 className="text-xl text-[#ff9933] font-bold mb-4">
-              Օրինակ՝ Ինչպես է այն երևում:
-            </h3>
-            <table className="w-full border-collapse my-6 rounded-lg overflow-hidden shadow-sm">
-              <thead>
-                <tr>
-                  <th
-                    className="border border-gray-300 p-3 text-left bg-[#3399ff] text-white font-bold"
-                    colSpan={2}
-                  >
-                    Անուն և Ազգանուն
-                  </th>
-                  <th className="border border-gray-300 p-3 text-left bg-[#3399ff] text-white font-bold">
-                    Տարիք
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="border border-gray-300 p-3 text-left">
-                    Արմեն
-                  </td>
-                  <td className="border border-gray-300 p-3 text-left">
-                    Գրիգորյան
-                  </td>
-                  <td className="border border-gray-300 p-3 text-left">16</td>
-                </tr>
-              </tbody>
-            </table>
+          <p className="text-gray-800 mb-4">
+            <span className="font-bold text-primary">Ինչո՞ւ է այն կարևոր՝</span>
+            <ul className="list-disc list-inside ml-4 mt-2 text-gray-700">
+              <li>
+                <span className="font-semibold">Օգտագործելիություն:</span> Երբ
+                սեղմում եք label-ի վրա, համապատասխան input դաշտը ակտիվանում է,
+                ինչը հեշտացնում է օգտագործումը, հատկապես բջջային սարքերում:
+              </li>
+              <li>
+                <span className="font-semibold">Մատչելիություն:</span> Էկրանի
+                ընթերցող ծրագրերը (որոնք օգտագործվում են տեսողության խնդիրներ
+                ունեցող մարդկանց կողմից) կարող են կարդալ label-ի տեքստը և
+                հասկանալ, թե որ դաշտին է այն վերաբերում:
+              </li>
+            </ul>
+          </p>
+          <p className="text-gray-800 mb-4">
+            <span className="font-bold text-primary">
+              Ինչպե՞ս կապել label-ը input-ի հետ՝
+            </span>
+            <ul className="list-disc list-inside ml-4 mt-2 text-gray-700">
+              <li>
+                <code className="bg-gray-200 p-1 rounded">&lt;label&gt;</code>{" "}
+                թեգի <code className="bg-gray-200 p-1 rounded">htmlFor</code>{" "}
+                ատրիբուտի արժեքը պետք է նույնը լինի, ինչ որ համապատասխան{" "}
+                <code className="bg-gray-200 p-1 rounded">&lt;input&gt;</code>-ի{" "}
+                <code className="bg-gray-200 p-1 rounded">id</code> ատրիբուտի
+                արժեքը:
+              </li>
+            </ul>
+          </p>
+          <div className="bg-gray-100 p-4 rounded-md overflow-x-auto text-sm">
+            <pre>
+              <code className="language-html">
+                &lt;label htmlFor=&quot;first_name&quot; className=&quot;block
+                text-gray-700 text-sm font-bold
+                mb-2&quot;&gt;Անուն:&lt;/label&gt; &lt;input
+                type=&quot;text&quot; id=&quot;first_name&quot;
+                name=&quot;first_name&quot; placeholder=&quot;Մուտքագրեք ձեր
+                անունը&quot; className=&quot;p-2 border rounded-md
+                w-full&quot;/&gt;
+              </code>
+            </pre>
           </div>
         </section>
 
-        {/* Rowspan Section */}
-        <section className="mb-8">
-          <h2 className="text-3xl text-[#3399ff] font-bold border-b-2 border-[#ff9933] pb-2 mb-4 mt-8">
-            6. rowspan - Տողերի Միացում
+        {/* Textarea Element Section */}
+        <section className="mb-8 p-6 bg-orange-50 rounded-lg shadow-md">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-primary mb-4">
+            4. &lt;textarea&gt; - Մեծ Տեքստային Դաշտ
           </h2>
-          <p className="mb-4">
-            Նմանապես, եթե ցանկանում եք, որ մեկ բջիջը զբաղեցնի մի քանի տողի տեղ,
-            օգտագործեք{" "}
-            <code className="bg-gray-100 px-1 py-0.5 rounded text-[#3399ff] font-mono">
-              rowspan
-            </code>{" "}
-            հատկանիշը։ Սա շատ օգտակար է, երբ ունեք տվյալներ, որոնք կրկնվում են
-            մի քանի տողերում։
+          <p className="text-gray-800 mb-4">
+            Երբ ցանկանում եք, որ օգտատերը գրի ավելի երկար տեքստ, օրինակ՝
+            մեկնաբանություն, հաղորդագրություն կամ նկարագրություն, &lt;input
+            type="text"&gt;-ը բավարար չէ: Այդ դեպքում օգտագործվում է
+            &lt;textarea&gt; թեգը: Այն ապահովում է բազմատող տեքստային դաշտ:
           </p>
-          <h3 className="text-xl text-[#ff9933] font-bold mt-6 mb-3">
-            Օրինակ:
-          </h3>
-          <pre className="bg-[#2d2d2d] text-[#f8f8f2] p-4 rounded-lg overflow-x-auto mb-6 font-mono">
-            &lt;table&gt; &lt;tr&gt; &lt;th&gt;Անուն&lt;/th&gt;
-            &lt;th&gt;Ազգանուն&lt;/th&gt; &lt;th&gt;Դասարան&lt;/th&gt;
-            &lt;/tr&gt; &lt;tr&gt; &lt;td{" "}
-            <span className="text-[#ff9933]">rowspan="2"</span>
-            &gt;Արմեն&lt;/td&gt; &lt;td&gt;Գրիգորյան&lt;/td&gt;
-            &lt;td&gt;10-րդ&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;!-- Արմենի
-            անունը կրկնվում է, այնպես որ այստեղ պարզապես կթողնենք դատարկ --&gt;
-            &lt;td&gt;Սարգսյան&lt;/td&gt; &lt;td&gt;10-րդ&lt;/td&gt; &lt;/tr&gt;
-            &lt;/table&gt;
-          </pre>
-          <div className="bg-white p-6 rounded-lg shadow-md mt-8">
-            <h3 className="text-xl text-[#ff9933] font-bold mb-4">
-              Օրինակ՝ Ինչպես է այն երևում:
-            </h3>
-            <table className="w-full border-collapse my-6 rounded-lg overflow-hidden shadow-sm">
-              <thead>
-                <tr>
-                  <th className="border border-gray-300 p-3 text-left bg-[#3399ff] text-white font-bold">
-                    Անուն
-                  </th>
-                  <th className="border border-gray-300 p-3 text-left bg-[#3399ff] text-white font-bold">
-                    Ազգանուն
-                  </th>
-                  <th className="border border-gray-300 p-3 text-left bg-[#3399ff] text-white font-bold">
-                    Դասարան
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td
-                    className="border border-gray-300 p-3 text-left"
-                    rowSpan={2}
-                  >
-                    Արմեն
-                  </td>
-                  <td className="border border-gray-300 p-3 text-left">
-                    Գրիգորյան
-                  </td>
-                  <td className="border border-gray-300 p-3 text-left">
-                    10-րդ
-                  </td>
-                </tr>
-                <tr>
-                  {/* The rowspan makes this cell unnecessary in the HTML as the previous cell spans it */}
-                  <td className="border border-gray-300 p-3 text-left">
-                    Սարգսյան
-                  </td>
-                  <td className="border border-gray-300 p-3 text-left">
-                    10-րդ
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <p className="text-gray-800 mb-4">
+            <span className="font-bold text-secondary">
+              Կարևոր ատրիբուտներ՝
+            </span>
+            <ul className="list-disc list-inside ml-4 mt-2 text-gray-700">
+              <li>
+                <span className="font-semibold">name:</span> Ինչպես
+                &lt;input&gt;-ի դեպքում, սա դաշտի անունն է սերվերի համար:
+              </li>
+              <li>
+                <span className="font-semibold">id:</span> Յուրահատուկ
+                նույնացուցիչ, որը կապվում է &lt;label&gt;-ի հետ:
+              </li>
+              <li>
+                <span className="font-semibold">rows:</span> Որոշում է դաշտի
+                տեսանելի բարձրությունը տողերով:
+              </li>
+              <li>
+                <span className="font-semibold">cols:</span> Որոշում է դաշտի
+                տեսանելի լայնությունը սյուներով (նիշերով):
+              </li>
+              <li>
+                <span className="font-semibold">placeholder:</span> Օգնող տեքստ
+                դաշտի ներսում:
+              </li>
+            </ul>
+          </p>
+          <div className="bg-gray-100 p-4 rounded-md overflow-x-auto text-sm">
+            <pre>
+              <code className="language-html">
+                &lt;label htmlFor=&quot;message&quot; className=&quot;block
+                text-gray-700 text-sm font-bold mb-2&quot;&gt;Ձեր
+                հաղորդագրությունը:&lt;/label&gt; &lt;textarea
+                id=&quot;message&quot; name=&quot;user_message&quot;
+                rows=&quot;5&quot; cols=&quot;50&quot; placeholder=&quot;Գրեք
+                ձեր մտքերը այստեղ...&quot; className=&quot;p-2 border rounded-md
+                w-full&quot;&gt;&lt;/textarea&gt;
+              </code>
+            </pre>
           </div>
         </section>
 
-        {/* Interactive Example Section */}
-        <section className="mb-8">
-          <h2 className="text-3xl text-[#3399ff] font-bold border-b-2 border-[#ff9933] pb-2 mb-4 mt-8">
-            7. Փորձիր Ինքդ - Պարզ Աղյուսակ Ստեղծող
+        {/* Button Element Section */}
+        <section className="mb-8 p-6 bg-blue-50 rounded-lg shadow-md">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-secondary mb-4">
+            5. &lt;button&gt; - Կոճակներ
           </h2>
-          <p className="mb-4">
-            Եկեք փորձենք ստեղծել մեր սեփական պարզ աղյուսակը։ Դուք կարող եք
-            փոփոխել ներքևի տեքստային դաշտը և տեսնել, թե ինչպես է այն ազդում
-            աղյուսակի վրա։
+          <p className="text-gray-800 mb-4">
+            Կոճակները թույլ են տալիս օգտատերին գործողություններ կատարել, օրինակ՝
+            ուղարկել formը, մաքրել դաշտերը կամ կատարել որևէ այլ գործողություն
+            JavaScript-ի միջոգով:
           </p>
-          <div className="mb-4">
-            <label
-              htmlFor="tableInput"
-              className="block text-[#3399ff] text-lg font-bold mb-2"
-            >
-              Մուտքագրեք աղյուսակի տվյալները (տողերը բաժանեք նոր տողով,
-              բջիջները՝ ստորակետով):
-            </label>
-            <textarea
-              id="tableInput"
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#3399ff]"
-              rows={6}
-              value={tableInput}
-              onChange={(e) => setTableInput(e.target.value)}
-            ></textarea>
-          </div>
-          <button
-            onClick={handleGenerateTableClick}
-            className="bg-[#3399ff] text-white px-4 py-2 rounded-md font-bold transition-colors duration-300 hover:bg-[#2a7fd4] mr-2"
-          >
-            Ստեղծել Աղյուսակ
-          </button>
-          <button
-            onClick={handleShowCodeClick}
-            className="bg-[#ff9933] text-white px-4 py-2 rounded-md font-bold transition-colors duration-300 hover:bg-[#d47e2a]"
-          >
-            {showCode ? "Թաքցնել Կոդը" : "Ցույց Տալ Կոդը"}
-          </button>
-
-          <div className="bg-white p-6 rounded-lg shadow-md mt-8">
-            <h3 className="text-xl text-[#ff9933] font-bold mb-4">
-              Ձեր Ստեղծած Աղյուսակը:
-            </h3>
-            {/* Dangerously set inner HTML as the table is generated as a string */}
-            <div dangerouslySetInnerHTML={{ __html: liveTableHtml }}></div>
-          </div>
-
-          {/* Generated Code Container */}
-          <div className={`mt-8 ${showCode ? "block" : "hidden"}`}>
-            <h3 className="text-xl text-[#ff9933] font-bold mb-4">
-              Ձեր Ստեղծած Աղյուսակի Կոդը:
-            </h3>
-            {/* Use dangerouslySetInnerHTML to render the pre-escaped HTML code string */}
-            <pre
-              className="bg-[#2d2d2d] text-[#f8f8f2] p-4 rounded-lg overflow-x-auto mb-6 font-mono"
-              dangerouslySetInnerHTML={{ __html: liveCodeHtml }}
-            ></pre>
+          <p className="text-gray-800 mb-4">
+            <span className="font-bold text-primary">Կարևոր ատրիբուտ՝</span>
+            <ul className="list-disc list-inside ml-4 mt-2 text-gray-700">
+              <li>
+                <span className="font-semibold">type:</span>
+                <ul className="list-disc list-inside ml-6 mt-1 text-gray-700">
+                  <li>
+                    <span className="font-semibold">submit:</span> Սա formը
+                    ուղարկելու կոճակն է: Երբ սեղմում եք այս կոճակը, Form-ի
+                    տվյալները կուղարկվեն{" "}
+                    <code className="bg-gray-200 p-1 rounded">
+                      &lt;form&gt;
+                    </code>{" "}
+                    թեգի <code className="bg-gray-200 p-1 rounded">action</code>{" "}
+                    ատրիբուտում նշված հասցեին:
+                  </li>
+                  <li>
+                    <span className="font-semibold">reset:</span> Մաքրում է
+                    Form-ի բոլոր դաշտերը:
+                  </li>
+                  <li>
+                    <span className="font-semibold">button:</span> Սովորական
+                    կոճակ, որը ոչինչ չի անում ինքնին, բայց կարող է օգտագործվել
+                    JavaScript-ի հետ՝ հատուկ գործողություններ կատարելու համար:
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </p>
+          <div className="bg-gray-100 p-4 rounded-md overflow-x-auto text-sm">
+            <pre>
+              <code className="language-html">
+                &lt;button type=&quot;submit&quot; className=&quot;bg-primary
+                text-white p-3 rounded-md hover:bg-blue-600 transition
+                duration-300 mr-2&quot;&gt;Ուղարկել&lt;/button&gt; &lt;button
+                type=&quot;reset&quot; className=&quot;bg-secondary text-white
+                p-3 rounded-md hover:bg-orange-600 transition
+                duration-300&quot;&gt;Մաքրել&lt;/button&gt;
+              </code>
+            </pre>
           </div>
         </section>
 
-        {/* Conclusion Section */}
-        <section className="mt-12 text-center">
-          <h2 className="text-3xl text-[#3399ff] font-bold border-b-2 border-[#ff9933] pb-2 mb-4">
-            Եզրակացություն
-          </h2>
-          <p className="mb-4">
-            Դուք հիմա գիտեք, թե ինչպես օգտագործել ՀՏՄԼ աղյուսակները։ Սրանք շատ
-            օգտակար գործիքներ են վեբ կայքերում տվյալները կազմակերպելու համար։
-            Շարունակեք փորձարկել և սովորել։
+        {/* Conclusion */}
+        <footer className="text-center mt-10 p-6 bg-white rounded-lg shadow-inner">
+          <p className="text-lg text-gray-700">
+            Ահա այսքանը: Հիմա դուք գիտեք, թե ինչպես են ստեղծվում վեբ formերի
+            հիմնական տարրերը: Փորձեք դրանք ինքներդ, և կտեսնեք, թե որքան հեշտ է
+            դա: Շարունակեք սովորել և ստեղծել:
           </p>
-        </section>
+          <p className="mt-4 text-sm text-gray-500">
+            Ստեղծված է սիրով՝ ձեզ համար:
+          </p>
+        </footer>
       </div>
     </div>
   );
 };
 
-export default HomePage;
+export default FormElementsPage;
