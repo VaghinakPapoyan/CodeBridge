@@ -10,7 +10,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "CodeBridge - Ծրագրավորման դպրոց Արմավիրում",
+  title: "CodeBridge | Ծրագրավորման դպրոց Արմավիրում",
   description:
     "Օֆլայն ծրագրավորման դասընթացներ, որակյալ դասեր Արմավիր քաղաքում",
   generator: "v0.dev",
