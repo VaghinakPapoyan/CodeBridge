@@ -494,10 +494,6 @@ export default function CodeBridgeLanding() {
                       20.000֏
                     </span>
                   </div>
-                  <p className="text-xl mb-4 text-gray-900">
-                    Զեղչը գործում է մինչև
-                    <span className="font-bold"> Սեպտեմբերի 1</span>
-                  </p>
                   <p className="text-xl mb-4 text-gray-900 orangee">
                     Կանչիր ընկերոջդ և երկուսով ստացեք 1 ամսվա համար
                     <span className="font-bold"> 50% զեղչ</span>
