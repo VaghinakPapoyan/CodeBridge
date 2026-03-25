@@ -655,7 +655,7 @@ export default function CodeBridgeLanding() {
                 </div>
                 <h3 className="text-xl font-semibold">Զանգահարեք մեզ</h3>
                 <p>
-                  +374 (93) 943-945
+                  +374 (93) 944-945
                   <br />
                   Երկուշաբթիից-ուրբաթ: 9:00 - 20:00
                   <br />
@@ -743,7 +743,7 @@ export default function CodeBridgeLanding() {
                 <ul className="space-y-2 text-[#eee]">
                   <li>info@codebridge.am</li>
                   <li>Ք. Արմավիր Նալբանդյան 5</li>
-                  <li>+374 (93) 943-945</li>
+                  <li>+374 (93) 944-945</li>
                   <li>
                     <a
                       href="https://www.instagram.com/codebridge.am"
